@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "Optien";
+    src: url(../assets/fonts/optien.ttf);
+}
+
+.optien {
+    font-family: "Optien";
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url(../assets/fonts/PoppinsRegular.otf);
+}
+
+.poppins {
+    font-family: "Poppins";
+}
+
+main {
+    .gradientBG {
+        background-image: url(../assets/backgrounds/backgroundmain.jpg);
+        background-size: 100% 100%;
+        color: white;
+        font-size: 3.5rem;
+
+        .blackBG {
+            background: black;
+            div {
+                div {
+                    .floatingText {
+                        font-size: 5rem;
+                        padding-bottom: 0;
+                        background: linear-gradient(0deg,
+            rgb(0, 0, 0) 50%,
+            transparent 50%);
+                    }
+                }
+            }
+            div {
+                height: 500px;
+                .imgContainer {
+                    height: 300px;
+                }
+            }
+            .logoContainer {
+                height: 60px;
+            }
+                .btnContainer {
+                    height: 50px;
+                }
+        }
+        &::after {
+            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23dfdfdf' fill-opacity='1' d='M0,64L120,80C240,96,480,128,720,133.3C960,139,1200,117,1320,106.7L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            padding: 0;
+            margin: 0;
+            height: 100px;
+        }
+    }
+
+    .lightBG {
+        background: rgb(223, 223, 223);
+        .asideIcons {
+            div {
+                width: 100px;
+            }
+        } 
+    }
+}
+.headingList {
+            font-size: 5rem;
+}
+
+.btn {
+    font-family: "Poppins";
+}
+
+
+
+footer {
+    margin: 0;
+    padding: 0;
+    height: 400px;
+    background: rgb(23, 35, 54);
+    background: linear-gradient(0deg,
+            rgba(23, 35, 54, 1) 40%,
+            rgba(20, 30, 48, 1) 80%,
+            rgb(223, 223, 223) 80%);
+
+    .footerSeparator {
+        height: 250px;
+    }
+}
