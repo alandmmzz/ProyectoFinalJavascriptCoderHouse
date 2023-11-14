@@ -14,6 +14,39 @@
   font-family: "Poppins";
 }
 
+.content {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  max-width: 100%;
+  width: 100vw;
+}
+
+article div {
+  background: #333;
+  font-size: 30px;
+  font-weight: bold;
+  height: 200px;
+  line-height: 200px;
+  margin: 1em;
+  text-align: center;
+  width: 300px;
+}
+
+.one {
+  background-color: #EC368D;
+}
+
+.two {
+  background-color: #333;
+}
+
+.three {
+  background-color: #440381;
+}
+
 main .gradientBG {
   background-image: url(../assets/backgrounds/backgroundmain.jpg);
   background-size: 100% 100%;
@@ -40,21 +73,32 @@ main .gradientBG .blackBG .logoContainer {
 main .gradientBG .blackBG .btnContainer {
   height: 50px;
 }
+main .gradientBG .blackBG .btnContainer button {
+  box-shadow: rgba(217, 217, 219, 0.1) 0px 4px 16px, rgba(217, 217, 219, 0.1) 0px 8px 24px, rgba(217, 217, 219, 0.1) 0px 16px 56px;
+}
 main .gradientBG::after {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23dfdfdf' fill-opacity='1' d='M0,64L120,80C240,96,480,128,720,133.3C960,139,1200,117,1320,106.7L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
   padding: 0;
   margin: 0;
-  height: 100px;
+  position: relative;
+  top: 25px;
 }
 main .lightBG {
   background: rgb(223, 223, 223);
 }
-main .lightBG .asideIcons div {
-  width: 100px;
+main .lightBG .asideIcons {
+  position: relative;
+  bottom: 160px;
 }
 
 .headingList {
   font-size: 5rem;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgb(80, 80, 80) 50%, transparent 50%);
+}
+
+.textList {
+  font-size: 2rem;
 }
 
 .btn {
