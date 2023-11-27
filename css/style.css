@@ -61,10 +61,10 @@ main .gradientBG .blackBG div div .floatingText {
   padding-bottom: 0;
   background: linear-gradient(0deg, rgb(0, 0, 0) 50%, transparent 50%);
 }
-main .gradientBG .blackBG div {
+main .gradientBG .blackBG .imgSeparatorContainer {
   height: 500px;
 }
-main .gradientBG .blackBG div .imgContainer {
+main .gradientBG .blackBG .imgSeparatorContainer .imgContainer {
   height: 300px;
 }
 main .gradientBG .blackBG .logoContainer {
@@ -91,6 +91,16 @@ main .lightBG .asideIcons {
   bottom: 160px;
 }
 
+.cardTask .cardHeader p {
+  font-size: 1.6rem;
+}
+.cardTask .cardSubject p {
+  font-size: 1rem;
+}
+.cardTask .cardDate p {
+  font-size: 1rem;
+}
+
 .headingList {
   font-size: 5rem;
   color: rgb(0, 0, 0);
@@ -114,6 +124,57 @@ footer {
 }
 footer .footerSeparator {
   height: 250px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blurred {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 
 /*# sourceMappingURL=style.css.map */
