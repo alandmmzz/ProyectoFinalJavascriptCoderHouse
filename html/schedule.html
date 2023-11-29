@@ -164,6 +164,17 @@
                             <input type="text" class="form-control" id="taskName" />
                         </div>
                         <div class="mb-3">
+                            <label for="taskSubject" class="col-form-label">Select
+                                the subject of the task:</label>
+                            <select id="taskSubject" class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="math">Math</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemestry">Chemestry</option>
+                                <option value="english">English</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="taskDay" class="col-form-label">Select
                                 due date:</label>
                             <select id="taskDay" class="form-select" aria-label="Default select example">
@@ -175,6 +186,16 @@
                                 <option value="friday">Friday</option>
                                 <option value="saturday">Saturday</option>
                             </select>
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="taskDate" class="col-form-label">Select
+                                due date:</label>
+                                <input type="date" class="form-control" id="taskDate" />
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="taskHour" class="col-form-label">Select
+                                due hour:</label>
+                                <input type="datetime-local" class="form-control" id="taskHour" />
                         </div>
                         <div class="mb-3">
                             <label for="taskDescription" class="col-form-label">Describe your task:</label>
