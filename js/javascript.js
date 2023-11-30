@@ -19,9 +19,9 @@ function getDayText(dayNumber) {
     case 10:
       return "Wednesday";
     case 4:
-      return "Thurday";
+      return "Thursday";
     case 11:
-      return "Thurday";
+      return "Thursday";
     case 5:
       return "Friday";
     case 12:
@@ -38,6 +38,7 @@ function addDays(date, days) {
 }
 
 let taskList = [];
+let taskQuantity = 0;
 
 const columnTitles = document.querySelectorAll("p.columnTitle");
 
@@ -51,26 +52,45 @@ columnTitles.forEach((title) => {
 // inputHour.setAttribute("min", (today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()));
 // inputHour.setAttribute("max", (addDays(today, 6)).getFullYear() + "-" + (addDays(today, 6)).getMonth() + 1 + "-" + (addDays(today, 6)).getDate());
 
-// Get the modal
-var modal = document.getElementById("myModal");
-// Get the button that opens the modal
-var addTaskBtn = document.getElementById("addTaskBtn");
-//Get the button to accept creating a card
+// ADD A TASK 
+var addTaskModal = document.querySelector("div#addTaskModal");
+var addTaskBtn = document.querySelector("button#addTaskBtn");
 var acceptBtn = document.getElementById("acceptBtn");
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var addTaskCloseBtn = document.querySelector("span.addTask.close");
 
-// When the user clicks on the button, open the modal
-addTaskBtn.addEventListener("click", () => (modal.style.display = "block"));
+// OPEN A TASK 
+var taskInformationModal = document.querySelector("div#taskInformationModal");
+var deleteTaskBtn = document.querySelector("button#deleteBtn");;
+// Get the <span> element that closes the modal
+var taskInformationCloseBtn = document.querySelector("span.openTask.close");
+
+function openTaskInformation(id) {
+  let showTask = taskList.find((el)=> {el.id == id});
+  console.log(showTask);
+  taskInformationModal.style.display = "block";
+  let taskInformationTitle = document.querySelector("span#taskInformationTitle");
+  taskInformationTitle.textContent = "hola!!!";
+}
 
 // When the user clicks on <span> (x), close the modal
-span.addEventListener("click", () => (modal.style.display = "none"));
+addTaskCloseBtn.addEventListener("click", () => (addTaskModal.style.display = "none"));
+// When the user clicks on <span> (x), close the modal
+taskInformationCloseBtn.addEventListener("click", () => (taskInformationModal.style.display = "none"));
+
+// When the user clicks on the button, open the modal
+addTaskBtn.addEventListener("click", () => (addTaskModal.style.display = "block"));
+
+// When the user clicks on <span> (x), close the modal
+addTaskCloseBtn.addEventListener("click", () => (addTaskModal.style.display = "none"));
 
 // When the user clicks anywhere outside of the modal, close it
 window.addEventListener("click", (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+  if (event.target == addTaskModal) {
+    addTaskModal.style.display = "none";
+  } else { if (event.target == taskInformationModal) {
+    taskInformationModal.style.display = "none";
+  }}
 });
 
 acceptBtn.addEventListener("click", () => {
@@ -81,20 +101,18 @@ acceptBtn.addEventListener("click", () => {
     iContainer[i].innerHTML = "";
     datei = addDays(datei, 1);
   }
-  var taskName = document.getElementById("taskName").value;
-  console.log("variable creada con nombre", taskName);
-  let taskDate = document.getElementById("taskHour").value;
-  console.log("variable creada con nombre", taskDate);
-  var taskSubject = document.getElementById("taskSubject").value;
-  console.log("variable creada con nombre", taskSubject);
-  var taskDescription = document.getElementById("taskDescription").value;
+  var taskName = document.querySelector("input#taskName").value;
+  let taskDate = document.querySelector("input#taskHour").value;
+  var taskSubject = document.querySelector("*#taskSubject").value;
+  var taskDescription = document.querySelector("textarea#taskDescription").value;
+  taskQuantity ++;
   let newTask = new Task(
+    taskQuantity,
     taskName,
     taskDate,
     taskSubject,
     taskDescription
   );
-  console.log("variable creada con nombre", newTask.name);
   taskList.push(newTask);
   console.log(taskList);
   datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
@@ -104,12 +122,9 @@ acceptBtn.addEventListener("click", () => {
     const result = taskList.filter(
       (el) => el.date.toDateString() == datei.toDateString()
     );
-    console.log(result);
     let iContainer = document.querySelectorAll("div.containerDate");
     result.forEach((task) => {
-      iContainer[
-        i
-      ].innerHTML += `<div class="bg-dark cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2">
+      iContainer[i].innerHTML += `<div id="task${task.id}" class="bg-dark cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2" onclick="openTaskInformation(${task.id})">
               <div class="cardHeader fw-semibold"><p>${task.name}</p></div>
               <div class="cardSubject text-end"><p>${task.subject}</p></div>
               <div class="cardDate text-end"><p>${task.datetime.getHours()}:${task.datetime.getMinutes()}</p></div>
@@ -117,10 +132,11 @@ acceptBtn.addEventListener("click", () => {
     });
     datei = addDays(datei, 1);
   }
-  modal.style.display = "none";
+  addTaskModal.style.display = "none";
 });
 
-function Task(taskName, taskDate, taskSubject, taskDescription) {
+function Task(taskQuantity, taskName, taskDate, taskSubject, taskDescription) {
+  this.id = taskQuantity;
   this.name = taskName;
   this.subject = taskSubject;
   this.date = new Date(

@@ -25,7 +25,7 @@
                         class="col-11 row d m-0 p-2 z-0">
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
                             <p class="columnTitle fs-2 fw-semibold">Monday</p>
-                            <div id="containerDate1" class="containerDate w-100 h-100 g-2 m-0 p-2">
+                            <div id="containerDate1" class="containerDate w-100 h-100 g-2 m-0 p-2" onclick="openTaskInformation(1)">
                                 <div class="bg-dark cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2">
                                     <div class="cardHeader fw-semibold"><p>Titulo</p></div>
                                     <div class="cardSubject text-end"><p>Materia</p></div>
@@ -147,16 +147,13 @@
                 </div>
             </div>
         </footer>
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
+        <!-- Add Task Modal -->
+        <div id="addTaskModal" class="modal">
             <div class="modal-content bg-dark text-light">
                 <div>
                     <span class="fs-3 fw-bold">Add a task</span>
-                    <span class="close">&times;</span>
+                    <span class="addTask close">&times;</span>
                 </div>
-
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
@@ -174,11 +171,6 @@
                                 <option value="english">English</option>
                             </select>
                         </div>
-                        <!-- <div class="mb-3">
-                            <label for="taskDate" class="col-form-label">Select
-                                due date:</label>
-                                <input type="date" class="form-control" id="taskDate" />
-                        </div> -->
                         <div class="mb-3">
                             <label for="taskHour" class="col-form-label">Select
                                 due date:</label>
@@ -192,6 +184,20 @@
                 </div>
                 <div class="modal-footer">
                     <button id="acceptBtn" type="button" class="btn btn-primary accept">Accept</button>
+                </div>
+            </div>
+        </div>
+        <!-- Open Task Information Modal -->
+        <div id="taskInformationModal" class="modal">
+            <div class="modal-content bg-dark text-light">
+                <div>
+                    <span id="taskInformationTitle" class="fs-3 fw-bold">Title</span>
+                    <span class="openTask close">&times;<span>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button id="deleteBtn" type="button" class="btn btn-danger delete">Delete task</button>
                 </div>
             </div>
         </div>
