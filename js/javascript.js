@@ -61,22 +61,43 @@ var addTaskCloseBtn = document.querySelector("span.addTask.close");
 
 // OPEN A TASK 
 var taskInformationModal = document.querySelector("div#taskInformationModal");
-var deleteTaskBtn = document.querySelector("button#deleteBtn");;
-// Get the <span> element that closes the modal
-var taskInformationCloseBtn = document.querySelector("span.openTask.close");
 
 function openTaskInformation(id) {
-  let showTask = taskList.find((el)=> {el.id == id});
-  console.log(showTask);
+  let showTask = taskList.find((task)=> task.id == id);
+  console.log();
+  taskInformationModal.innerHTML = `<div class="modal-content bg-dark text-light">
+  <div>
+      <span id="taskInformationTitle" class="fs-3 fw-bold">${showTask.name}</span>
+      <span class="openTask close">&times;<span>
+  </div>
+  <div class="modal-body">
+      <div class="mb-3">
+          <p>Subject: ${showTask.subject}</p>
+      </div>
+      <div class="mb-3">
+          <p>Due date:  ${showTask.date.toDateString()}</p>
+      </div>
+      <div class="mb-3">
+          <p>Task description: ${showTask.description}</p>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <button id="deleteBtn" type="button" class="btn btn-danger delete">Delete task</button>
+  </div>
+</div>`
   taskInformationModal.style.display = "block";
-  let taskInformationTitle = document.querySelector("span#taskInformationTitle");
-  taskInformationTitle.textContent = "hola!!!";
+  const taskInformationCloseBtn = document.querySelector("span.openTask.close");
+  taskInformationCloseBtn.addEventListener("click", () => (taskInformationModal.style.display = "none"));
+  const deleteTaskBtn = document.querySelector("button#deleteBtn");
+  deleteTaskBtn.addEventListener("click", () => {
+    taskList.splice((taskList.indexOf(taskList.find((task)=> task.id == id))), 1);
+    UpdateLists();
+    taskInformationModal.style.display = "none";
+  });
 }
 
 // When the user clicks on <span> (x), close the modal
 addTaskCloseBtn.addEventListener("click", () => (addTaskModal.style.display = "none"));
-// When the user clicks on <span> (x), close the modal
-taskInformationCloseBtn.addEventListener("click", () => (taskInformationModal.style.display = "none"));
 
 // When the user clicks on the button, open the modal
 addTaskBtn.addEventListener("click", () => (addTaskModal.style.display = "block"));
@@ -94,13 +115,6 @@ window.addEventListener("click", (event) => {
 });
 
 acceptBtn.addEventListener("click", () => {
-  let datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
-  datei = new Date(datei);
-  for (let i = 0; i < 6; i++) {
-    let iContainer = document.querySelectorAll("div.containerDate");
-    iContainer[i].innerHTML = "";
-    datei = addDays(datei, 1);
-  }
   var taskName = document.querySelector("input#taskName").value;
   let taskDate = document.querySelector("input#taskHour").value;
   var taskSubject = document.querySelector("*#taskSubject").value;
@@ -115,6 +129,31 @@ acceptBtn.addEventListener("click", () => {
   );
   taskList.push(newTask);
   console.log(taskList);
+  UpdateLists(); 
+  addTaskModal.style.display = "none";
+});
+
+function Task(taskQuantity, taskName, taskDate, taskSubject, taskDescription) {
+  this.id = taskQuantity;
+  this.name = taskName;
+  this.subject = taskSubject;
+  this.date = new Date(
+    parseInt(taskDate.substring(0, 4)),
+    parseInt(taskDate.substring(5, 7)) - 1,
+    parseInt(taskDate.substring(8, 10))
+  );
+  this.datetime = new Date(taskDate);
+  this.description = taskDescription;
+}
+
+function UpdateLists(){
+  let datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
+  datei = new Date(datei);
+  for (let i = 0; i < 6; i++) {
+    let iContainer = document.querySelectorAll("div.containerDate");
+    iContainer[i].innerHTML = "";
+    datei = addDays(datei, 1);
+  }
   datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
   datei = new Date(datei);
   for (let i = 0; i < 6; i++) {
@@ -132,19 +171,5 @@ acceptBtn.addEventListener("click", () => {
     });
     datei = addDays(datei, 1);
   }
-  addTaskModal.style.display = "none";
-});
-
-function Task(taskQuantity, taskName, taskDate, taskSubject, taskDescription) {
-  this.id = taskQuantity;
-  this.name = taskName;
-  this.subject = taskSubject;
-  this.date = new Date(
-    parseInt(taskDate.substring(0, 4)),
-    parseInt(taskDate.substring(5, 7)) - 1,
-    parseInt(taskDate.substring(8, 10))
-  );
-  this.datetime = new Date(taskDate);
-  this.description = taskDescription;
 }
 
