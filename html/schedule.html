@@ -24,8 +24,8 @@
                     <div
                         class="col-11 row d m-0 p-2 z-0">
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
-                            <p class="fs-2 fw-semibold">Monday</p>
-                            <div id="mondayContainer" class="w-100 h-100 g-2 m-0 p-2">
+                            <p class="columnTitle fs-2 fw-semibold">Monday</p>
+                            <div id="containerDate1" class="containerDate w-100 h-100 g-2 m-0 p-2">
                                 <div class="bg-dark cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2">
                                     <div class="cardHeader fw-semibold"><p>Titulo</p></div>
                                     <div class="cardSubject text-end"><p>Materia</p></div>
@@ -34,32 +34,32 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
-                            <p class="fs-2 fw-semibold">Tuesday</p>
-                            <div id="tuesdayContainer" class="w-100 h-100 g-2 m-0 p-2">
+                            <p class="columnTitle fs-2 fw-semibold">Tuesday</p>
+                            <div id="containerDate2" class="containerDate w-100 h-100 g-2 m-0 p-2">
                                 
                             </div>
                         </div>
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
-                            <p class="fs-2 fw-semibold">Wedneday</p>
-                            <div id="wednedayContainer" class="w-100 h-100 g-2 m-0 p-2">
+                            <p class="columnTitle fs-2 fw-semibold">Wedneday</p>
+                            <div id="containerDate3" class="containerDate w-100 h-100 g-2 m-0 p-2">
                                 
                             </div>
                         </div>
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
-                            <p class="fs-2 fw-semibold">Thursday</p>
-                            <div id="thursdayContainer" class="w-100 h-100 g-2 m-0 p-2">
+                            <p class="columnTitle fs-2 fw-semibold">Thursday</p>
+                            <div id="containerDate4" class="containerDate w-100 h-100 g-2 m-0 p-2">
                                 
                             </div>
                         </div>
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
-                            <p class="fs-2 fw-semibold">Friday</p>
-                            <div id="fridayContainer" class="w-100 h-100 g-2 m-0 p-2">
+                            <p class="columnTitle fs-2 fw-semibold">Friday</p>
+                            <div id="containerDate5" class="containerDate w-100 h-100 g-2 m-0 p-2">
                                 
                             </div>
                         </div>
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
-                            <p class="fs-2 fw-semibold">Saturday</p>
-                            <div id="saturdayContainer" class="w-100 h-100 g-2 m-0 p-2">
+                            <p class="columnTitle fs-2 fw-semibold">Saturday</p>
+                            <div id="containerDate6" class="containerDate w-100 h-100 g-2 m-0 p-2">
                                 
                             </div>
                         </div>
@@ -174,19 +174,6 @@
                                 <option value="english">English</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="taskDay" class="col-form-label">Select
-                                due date:</label>
-                            <select id="taskDay" class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="monday">Monday</option>
-                                <option value="tuesday">Tuesday</option>
-                                <option value="wednesday">Wednesday</option>
-                                <option value="thursday">Thursday</option>
-                                <option value="friday">Friday</option>
-                                <option value="saturday">Saturday</option>
-                            </select>
-                        </div>
                         <!-- <div class="mb-3">
                             <label for="taskDate" class="col-form-label">Select
                                 due date:</label>
@@ -194,8 +181,8 @@
                         </div> -->
                         <div class="mb-3">
                             <label for="taskHour" class="col-form-label">Select
-                                due hour:</label>
-                                <input type="datetime-local" class="form-control" id="taskHour" />
+                                due date:</label>
+                                <input type="datetime-local" class="form-control" id="taskHour" min="2023-11-30" />
                         </div>
                         <div class="mb-3">
                             <label for="taskDescription" class="col-form-label">Describe your task:</label>
