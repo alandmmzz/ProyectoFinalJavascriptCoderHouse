@@ -151,7 +151,7 @@ function UpdateLists(){
   datei = new Date(datei);
   for (let i = 0; i < 6; i++) {
     let iContainer = document.querySelectorAll("div.containerDate");
-    iContainer[i].innerHTML = "";
+    iContainer[i].innerHTML = " ";
     datei = addDays(datei, 1);
   }
   datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
@@ -163,7 +163,7 @@ function UpdateLists(){
     );
     let iContainer = document.querySelectorAll("div.containerDate");
     result.forEach((task) => {
-      iContainer[i].innerHTML += `<div id="task${task.id}" class="bg-dark cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2" onclick="openTaskInformation(${task.id})">
+      iContainer[i].innerHTML += `<div id="task${task.id}" class="cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2" onclick="openTaskInformation(${task.id})">
               <div class="cardHeader fw-semibold"><p>${task.name}</p></div>
               <div class="cardSubject text-end"><p>${task.subject}</p></div>
               <div class="cardDate text-end"><p>${task.datetime.getHours()}:${task.datetime.getMinutes()}</p></div>
