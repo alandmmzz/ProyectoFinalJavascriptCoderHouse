@@ -62,6 +62,26 @@ var addTaskCloseBtn = document.querySelector("span.addTask.close");
 // OPEN A TASK 
 var taskInformationModal = document.querySelector("div#taskInformationModal");
 
+//NO TASKS MESSAGE
+const noTasksContainer = document.querySelector("div#noTasksContainer");
+
+const getTaskList = localStorage.getItem("taskList");
+if (getTaskList == null) {
+  console.log(getTaskList);
+  noTasksContainer.style.display = "block";
+} else {
+  taskList = getTaskList;
+  taskList = JSON.parse(localStorage.getItem("taskList"));
+  console.table(taskList);
+  taskList.forEach((task)=> {
+    task.id = taskQuantity + 1;
+    taskQuantity ++;
+    task.date = new Date(task.date);
+    task.datetime = new Date(task.datetime);
+  })
+  UpdateLists();
+}
+
 function openTaskInformation(id) {
   let showTask = taskList.find((task)=> task.id == id);
   console.log();
@@ -116,9 +136,13 @@ window.addEventListener("click", (event) => {
 
 acceptBtn.addEventListener("click", () => {
   var taskName = document.querySelector("input#taskName").value;
+  console.log(taskName);
   let taskDate = document.querySelector("input#taskHour").value;
+  console.log(taskDate);
   var taskSubject = document.querySelector("*#taskSubject").value;
+  console.log(taskSubject);
   var taskDescription = document.querySelector("textarea#taskDescription").value;
+  console.log(taskDescription);
   taskQuantity ++;
   let newTask = new Task(
     taskQuantity,
@@ -129,7 +153,7 @@ acceptBtn.addEventListener("click", () => {
   );
   taskList.push(newTask);
   console.log(taskList);
-  UpdateLists(); 
+  UpdateLists();
   addTaskModal.style.display = "none";
 });
 
@@ -171,5 +195,10 @@ function UpdateLists(){
     });
     datei = addDays(datei, 1);
   }
+  localStorage.setItem("taskList", JSON.stringify(taskList));
+  console.log(taskList.length);
+  taskList.length < 1 ?
+    noTasksContainer.style.display = "block" :
+    noTasksContainer.style.display = "none";
 }
 

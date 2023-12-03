@@ -92,6 +92,11 @@ main .lightBG .asideIcons {
   bottom: 160px;
 }
 
+.collapse {
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+
 .cardTask {
   background-color: rgb(46, 46, 46);
   transition: transform 0.2s;

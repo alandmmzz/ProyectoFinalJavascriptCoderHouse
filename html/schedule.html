@@ -29,11 +29,11 @@
                         </div>
                         <button id="addTaskBtn" class="btn btn-light modal-toggle rounded-pill poppins h-100" href="../html/schedule.html">Add task</button>
                     </div>
-                    <div class="collapse text-bg-dark rounded-4 border border-dark-subtle m-0 mt-3 p-3" id="collapseExample">
+                    <div class="collapse rounded-4 m-0 mt-3 p-3" id="collapseExample">
                         <p class="fs-2 fw-semibold">Settings</p>
                         <div class="row">
                             <span class="col-2 text-end fs-5 pt-1">Your Subjects:</span>
-                            <ul class="col-6 list-group text-bg-dark fs-6">
+                            <ul class="col-6 list-group fs-6">
                                 <li class="list-group-item bg-dark text-light d-flex justify-content-between align-items-center">
                                   A list item
                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
@@ -54,7 +54,6 @@
                                 </li>
                               </ul>
                         </div>
-                        
                       </div>
                     <div class="col-11 row d m-0 p-2 z-0">
                         <div class="col-2 d-flex flex-column justify-content-start align-items-center m-0 p-2 d-flex">
@@ -81,6 +80,9 @@
                             <p class="columnTitle fs-2 fw-semibold">Saturday</p>
                             <div id="containerDate6" class="containerDate w-100 h-100 g-2 m-0 p-2"></div>
                         </div>
+                    </div>
+                    <div id="noTasksContainer" style="display: none;">
+                        <p class="fs-3 text-center">You don't have any task for this week, try add some!</p>
                     </div>
                 </div>
             </div>
@@ -185,6 +187,9 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <div class="alert alert-warning" role="alert">
+                               Currently, Schedule It will only show you data about the next 6 days. Please, do not select a date that overpasses the next 6 following days.
+                              </div>
                             <label for="taskHour" class="col-form-label">Select
                                 due date:</label>
                                 <input type="datetime-local" class="form-control" id="taskHour" min="2023-11-30" />
