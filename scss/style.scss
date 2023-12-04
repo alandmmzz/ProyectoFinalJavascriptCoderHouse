@@ -91,6 +91,7 @@ main {
                         width: 100%;
                         }
                     .columnTitle {
+                        width: 96px;
                         font-size: calc(1rem + .9vw);
                         @media screen and (max-width: 1060px) {
                             font-size: 1.15rem;
