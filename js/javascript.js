@@ -173,14 +173,14 @@ function Task(taskQuantity, taskName, taskDate, taskSubject, taskDescription) {
 function UpdateLists(){
   let datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
   datei = new Date(datei);
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 7; i++) {
     let iContainer = document.querySelectorAll("div.containerDate");
     iContainer[i].innerHTML = " ";
     datei = addDays(datei, 1);
   }
   datei = today.getFullYear() + "," + (today.getMonth() + 1) + "," + today.getDate();
   datei = new Date(datei);
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 7; i++) {
     console.log(datei);
     const result = taskList.filter(
       (el) => el.date.toDateString() == datei.toDateString()
@@ -188,9 +188,9 @@ function UpdateLists(){
     let iContainer = document.querySelectorAll("div.containerDate");
     result.forEach((task) => {
       iContainer[i].innerHTML += `<div id="task${task.id}" class="cardTask d-flex flex-column rounded-4 ps-2 pe-2 mb-2" onclick="openTaskInformation(${task.id})">
-              <div class="cardHeader fw-semibold"><p>${task.name}</p></div>
-              <div class="cardSubject text-end"><p>${task.subject}</p></div>
-              <div class="cardDate text-end"><p>${task.datetime.getHours()}:${task.datetime.getMinutes()}</p></div>
+              <div class="taskHeader fw-semibold"><p>${task.name}</p></div>
+              <div class="taskSubject text-end"><p>${task.subject}</p></div>
+              <div class="taskDate text-end"><p>${task.datetime.getHours()}:${task.datetime.getMinutes() < 10 ? ("0" + task.datetime.getMinutes()) : task.datetime.getMinutes()}</p></div>
           </div>`;
     });
     datei = addDays(datei, 1);
