@@ -113,6 +113,17 @@ function openTaskInformation(id) {
     taskList.splice((taskList.indexOf(taskList.find((task)=> task.id == id))), 1);
     UpdateLists();
     taskInformationModal.style.display = "none";
+    Toastify({
+      text: "Task deleted",
+      duration: 3000,
+      newWindow: true,
+      gravity: "top", 
+      position: "right",
+      stopOnFocus: true,
+      style: {
+        background: "linear-gradient(to right, #fc6076, #ff9a44)",
+      },
+    }).showToast();
   });
 }
 
@@ -155,6 +166,17 @@ acceptBtn.addEventListener("click", () => {
   console.log(taskList);
   UpdateLists();
   addTaskModal.style.display = "none";
+  Toastify({
+    text: "Task created successfully",
+    duration: 3000,
+    newWindow: true,
+    gravity: "top", 
+    position: "right",
+    stopOnFocus: true,
+    style: {
+      background: "linear-gradient(to right, #20E2D7, #F9FEA5);",
+    },
+  }).showToast();
 });
 
 function Task(taskQuantity, taskName, taskDate, taskSubject, taskDescription) {
@@ -202,3 +224,10 @@ function UpdateLists(){
     noTasksContainer.style.display = "none";
 }
 
+let subjects = [];
+
+async function getSubjects() {
+  const response = await fetch("/js/subjects.json");
+  const subjectsJSON = await response.json();
+  await subjects.push(...subjectsJSON)
+}

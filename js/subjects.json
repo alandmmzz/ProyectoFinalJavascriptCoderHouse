@@ -1,0 +1,12 @@
+[
+    {
+      "id":1,
+      "name":"Math",
+      "colour":"#d91e1e"
+    },
+    {
+      "id":1,
+      "name":"Physics",
+      "colour":"#188755"
+    }
+  ]
