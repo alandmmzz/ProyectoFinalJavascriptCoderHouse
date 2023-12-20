@@ -5,8 +5,34 @@
       "colour":"#d91e1e"
     },
     {
-      "id":1,
+      "id":2,
       "name":"Physics",
       "colour":"#188755"
-    }
+    },
+    {
+        "id":3,
+        "name":"Chemestry",
+        "colour":"#6d41bf"
+      },
+      {
+        "id":4,
+        "name":"English",
+        "colour":"#d975d2"
+      },
+      {
+        "id":5,
+        "name":"History",
+        "colour":"#303063"
+      },
+      {
+        "id":6,
+        "name":"Geography",
+        "colour":"#2e8072"
+      },
+      {
+        "id":7,
+        "name":"Literature",
+        "colour":"#d1922c"
+      }
+
   ]
